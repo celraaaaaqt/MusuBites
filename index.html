@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Landing Page</title>
+    <title>MusuGo</title>
   </head>
 <style>
   html, body {
@@ -19,38 +19,76 @@
   }
 
 </style>
-  <body class="bg-white">
-<nav class="bg-black flex items-center justify-between px-8 py-5 ">
+  <body>
+<nav class="flex items-center justify-between w-full px-4 sm:px-6 py-2 backdrop-blur-2xl border-b border-blue-300/30 shadow-xl">
     
-    <h1 class="text-2xl font-bold text-green-600">
-      MusuBites
-    </h1>
+   <img class="w-30 h-30 sm:w-24 sm:h-24 object-contain" 
+   src="src/assets/heros/musugo-official-logo.png"
+   alt="MusuGo Logo"> 
 
-    <div class="flex gap-8">
-      <a href="#" class="text-white hover:text-green-300">
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#" class="text-white  hover:text-green-300">
         Home
       </a>
 
-      <a href="#" class="text-white hover:text-green-300">
+      <a href="#" class="text-white  hover:text-green-300">
         Menu
       </a>
 
-      <a href="#" class="text-white hover:text-green-300">
+      <a href="#" class="text-white  hover:text-green-300">
         About
       </a>
 
-      <a href="#" class="text-white hover:text-green-300">
+      <a href="#" class="text-white  hover:text-green-300">
         Contact
       </a>
 
-      
-    </div>
- <button class="bg-green-500 rounded-full bg-blue px-6 py-3 text-white hover:bg-blue-800">
+      <button
+      class="bg-green-500 rounded-full px-6 py-3 text-white hover:bg-green-700 transition"
+    >
       Order Now
     </button>
-   
-
+    </div>
+ <button 
+    id="menuBtn"
+    class="md:hidden text-3xl text-white"
+    aria-label="Open menu"
+    >
+    ☰
+  </button>
+  
   </nav>
+
+<div id="mobileMenu"
+    class="hidden md:hidden px-6 py-5 backdrop-blur-xl border-b">
+
+    <div class="flex flex-col items-center gap-5">
+
+    <a href="#" class="text-white hover:text-green-300">
+      Home
+    </a>
+
+    <a href="#" class="text-white hover:text-green-300">
+      Menu
+    </a>
+
+    <a href="#" class="text-white hover:text-green-300">
+      About
+    </a>
+
+    <a href="#" class="text-white hover:text-green-300">
+      Contact
+    </a>
+
+    <button
+      class="bg-green-500 rounded-full px-6 py-3 text-white hover:bg-green-700"
+    >
+      Order Now
+    </button>
+
+  </div>
+  </div>
+
 <section class="min-h-screen flex justify-center items-center">
       <div
         class="w-full max-w-xl bg-green-400/0 backdrop-blur-sm border border-green-500 shadow-xl p-6 sm:p-8 md:p-10 text-white"
@@ -69,5 +107,6 @@
     </section>
  
     <script type="module" src="/src/main.js"></script>
+   
   </body>
 </html>

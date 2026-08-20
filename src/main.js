@@ -4,6 +4,14 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import { setupCounter } from './counter.js'
 
+const menuBtn = document.querySelector("#menuBtn");
+const mobileMenu = document.querySelector("#mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
+
+
 document.querySelector('#app').innerHTML = `
 <section id="center">
   <div class="hero">
@@ -58,3 +66,5 @@ document.querySelector('#app').innerHTML = `
 `
 
 setupCounter(document.querySelector('#counter'))
+
+
