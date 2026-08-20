@@ -3,110 +3,124 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>MusuGo</title>
   </head>
-<style>
-  html, body {
-    width:100%;
-    padding: 0;
-    margin: 0;
-  }
-  body {
-    background-image:  linear-gradient(rgba(0, 0, 0, 0.4 ), rgba(0, 0, 0, 0.9)), url("src/assets/heros/pyramidSpam.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    
-  }
+  <style>
+    html,
+    body {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
 
-</style>
-  <body>
-<nav class="flex items-center justify-between w-full px-4 sm:px-6 py-2 backdrop-blur-2xl border-b border-blue-300/30 shadow-xl">
-    
-   <img class="w-30 h-30 sm:w-24 sm:h-24 object-contain" 
-   src="src/assets/heros/musugo-official-logo.png"
-   alt="MusuGo Logo"> 
-
-    <div class="hidden md:flex items-center gap-8">
-      <a href="#" class="text-white  hover:text-green-300">
-        Home
-      </a>
-
-      <a href="#" class="text-white  hover:text-green-300">
-        Menu
-      </a>
-
-      <a href="#" class="text-white  hover:text-green-300">
-        About
-      </a>
-
-      <a href="#" class="text-white  hover:text-green-300">
-        Contact
-      </a>
-
-      <button
-      class="bg-green-500 rounded-full px-6 py-3 text-white hover:bg-green-700 transition"
+    @media (max-width: 748px) {
+      body {
+        background-position: center;
+        background-attachment: scroll;
+      }
+    }
+  </style>
+  <body
+    class="font-poppins bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.5)),url('/src/assets/heros/official-bg-image.png')] bg-cover bg-[center_80%] bg-no-repeat sm:bg-center"
+  >
+    <nav
+      class="sticky top-0 z-50 bg-[radial-gradient(circle_at_top_left,_#59c3ff,_#c0ddbb)] flex items-center justify-between w-full px-4 sm:px-6 py-3 backdrop-blur-2xl border-b border-blue-300/30 shadow-xl relative z-50"
     >
-      Order Now
-    </button>
-    </div>
- <button 
-    id="menuBtn"
-    class="md:hidden text-3xl text-white"
-    aria-label="Open menu"
-    >
-    ☰
-  </button>
-  
-  </nav>
+      <img
+        class="w-24 h-24 sm:w-24 sm:h-26 object-contain"
+        src="src/assets/heros/musugo-official-logo.png"
+        alt="MusuGo Logo"
+      />
 
-<div id="mobileMenu"
-    class="hidden md:hidden px-6 py-5 backdrop-blur-xl border-b">
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#" class="text-blue-950 font-semibold hover:text-blue-800">
+          Home
+        </a>
 
-    <div class="flex flex-col items-center gap-5">
+        <a href="#" class="text-blue-950 font-semibold hover:text-blue-800">
+          Menu
+        </a>
 
-    <a href="#" class="text-white hover:text-green-300">
-      Home
-    </a>
+        <a href="#" class="text-blue-950 font-semibold hover:text-blue-800">
+          About
+        </a>
 
-    <a href="#" class="text-white hover:text-green-300">
-      Menu
-    </a>
+        <a href="#" class="text-blue-950 font-semibold hover:text-blue-800">
+          Contact
+        </a>
 
-    <a href="#" class="text-white hover:text-green-300">
-      About
-    </a>
-
-    <a href="#" class="text-white hover:text-green-300">
-      Contact
-    </a>
-
-    <button
-      class="bg-green-500 rounded-full px-6 py-3 text-white hover:bg-green-700"
-    >
-      Order Now
-    </button>
-
-  </div>
-  </div>
-
-<section class="min-h-screen flex justify-center items-center">
-      <div
-        class="w-full max-w-xl bg-green-400/0 backdrop-blur-sm border border-green-500 shadow-xl p-6 sm:p-8 md:p-10 text-white"
-      >
-        <h1 class="text-2xl sm:text-3xl font-bold mb-12 text-center text-green-700">
-          WELCOME!
-        </h1>
-        <h1 class="text-xl sm:text-xl font-bold mb-4 text-center">
-        <code class="text-green-400 text-3xl"> Ready to taste our <u class ="text-green-300">MusuBites</u>?</code></i>
-        </h1>
-         <button class=" block mx-auto  bg-green-500 rounded-full bg-blue px-6 py-3 text-white hover:bg-blue-800">
-      Order Now
-    </button>
+        <button
+          class="bg-blue-500 rounded-xl px-6 py-3 text-white hover:bg-blue-800 transition"
+        >
+          Contact Us
+        </button>
       </div>
-    
+     <button
+  id="menuBtn"
+  class="md:hidden relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 z-50"
+  aria-label="Open menu"
+  aria-expanded="false"
+  aria-controls="mobileMenu"
+>
+  <span id="bar1" class="block w-7 h-0.5 bg-blue-950 rounded-full transition-all duration-300 ease-in-out"></span>
+  <span id="bar2" class="block w-7 h-0.5 bg-blue-950 rounded-full transition-all duration-300 ease-in-out"></span>
+  <span id="bar3" class="block w-7 h-0.5 bg-blue-950 rounded-full transition-all duration-300 ease-in-out"></span>
+</button>
+    </nav>
+    <div
+  id="mobileMenu"
+  style="transform: translateX(100%);"
+  class="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-[linear-gradient(135deg,rgba(89,195,255,0.25),rgba(192,221,187,0.25))] backdrop-blur-3xl px-6 py-8 z-40 shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out"
+>
+      <div class="flex flex-col items-center gap-6 mt-30">  
+        <a href="#" class="text-white font-semibold text-lg hover:text-blue-300"
+          >Home</a
+        >
+        <a href="#" class="text-white font-semibold text-lg hover:text-blue-300"
+          >Menu</a
+        >
+        <a href="#" class="text-white font-semibold text-lg hover:text-blue-300"
+          >About</a
+        >
+        <a href="#" class="text-white font-semibold text-lg hover:text-blue-300"
+          >Contact</a
+        >
+        <button
+          class="bg-blue-500 rounded-xl px-6 py-3 text-white font-medium hover:bg-blue-800 transition w-full"
+        >
+          Contact Us
+        </button>
+      </div>
+    </div>
+
+    <section class="min-h-screen flex justify-center items-center px-4">
+      <div
+        class="w-full max-w-xl bg-black/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl p-6 sm:p-8 md:p-10 text-white"
+      >
+        <h1
+          class="text-2xl sm:text-3xl font-bold mb-4 text-center text-blue-400"
+        >
+          Ready, Set, GO!
+        </h1>
+        <p class="text-xl sm:text-2xl font-semibold mb-8 text-center">
+          Ready to taste our
+          <span class="text-blue-300 underline">MusuGo</span>?
+        </p>
+        <button
+          class="block mx-auto bg-blue-500 rounded-xl px-6 py-3 text-white font-medium hover:bg-blue-800 transition"
+        >
+          Order Now
+        </button>
+      </div>
     </section>
- 
     <script type="module" src="/src/main.js"></script>
-   
   </body>
 </html>
