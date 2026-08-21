@@ -7,10 +7,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
-        about: resolve(__dirname, "about.html"),
-        menu: resolve(__dirname, "menu.html"),
-        socmed: resolve(__dirname, "socmed.html"),
+        main: resolve(import.meta.dirname, "index.html"),
+        about: resolve(import.meta.dirname, "about.html"),
+        menu: resolve(import.meta.dirname, "menu.html"),
+        socmed: resolve(import.meta.dirname, "socmed.html"),
       },
     },
   },
