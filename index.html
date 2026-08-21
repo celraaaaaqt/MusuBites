@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,23 +15,36 @@
     <title>MusuGo</title>
   </head>
   <style>
-    html,
-    body {
-      width: 100%;
-      padding: 0;
-      margin: 0;
-    }
+  html,
+  body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 
-    @media (max-width: 748px) {
-      body {
-        background-position: center;
-        background-attachment: scroll;
-      }
+  body {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/src/assets/heros/GO-cover-photo.jpg");
+
+    background-size: cover;
+    background-position: center 80%;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 748px) {
+    body {
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+        url("src/assets/heros/GO-cover-final-mobile.png");
+
+      background-position: center;
+      background-attachment: scroll;
     }
-  </style>
+  }
+</style>
   <body
-    class="font-poppins bg-[linear-gradient(rgba(0,0,0,0.50),rgba(0,0,0,0.5)),url('/src/assets/heros/official-bg-image.png')] bg-cover bg-[center_80%] bg-no-repeat sm:bg-center"
-  >
+    class="font-poppins">
     <nav
       class="sticky top-0 z-50 bg-[radial-gradient(circle_at_top_left,_#59c3ff,_#c0ddbb)] flex items-center justify-between w-full px-4 sm:px-4 py-2 backdrop-blur-2xl border-b border-blue-300/30 shadow-xl relative z-50"
     >
@@ -102,14 +115,15 @@
       </div>
     </div>
 
-    <section class="min-h-screen flex justify-center items-start pt-5">
+    <section class="min-h-screen flex justify-center items-start pt-17">
       <div
-       class="w-l max-w-4xl sm:w-full bg-gradient-to-br from-[#59c3ff]/30 to-[#c0ddbb]/30 backdrop-blur-xsm rounded-xl border border-white/20 shadow-2xl p-10 md:p-18 text-white"
+       class="w-xl max-w-4xl sm:w-full bg-gradient-to-br from-[#59c3ff]/30 to-[#c0ddbb]/10 backdrop-blur-xxsm rounded-xl border border-white/50 shadow-2xl p-10 md:p-14 text-white"
       >
-        <h1
-          class="text-3xl sm:text-5xl mb-4 text-center sm:text-white">
+      <h1
+      class="text-3xl sm:text-5xl sm:text-white">
           Ready, Set, GO!
         </h1>
+        <br>
         <br>
         <br>
         <br>
