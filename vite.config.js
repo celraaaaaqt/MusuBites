@@ -10,7 +10,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         about: resolve(__dirname, "about.html"),
         menu: resolve(__dirname, "menu.html"),
-        contact: resolve(__dirname, "socmed.html"),
+        socmed: resolve(__dirname, "socmed.html"),
       },
     },
   },
