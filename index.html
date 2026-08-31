@@ -107,19 +107,22 @@
       />
 
       <div class="hidden md:flex items-center gap-8">
-        <a href="#" class="text-blue-950 font-semibold hover:text-blue-800">
+        <a href="home" class="text-blue-950 font-semibold hover:text-blue-800">
           Home
         </a>
 
-        <a href="#" class="text-blue-950 font-semibold hover:text-blue-800">
+        <a href="menu" class="text-blue-950 font-semibold hover:text-blue-800">
           Menu
         </a>
 
-        <a href="#" class="text-blue-950 font-semibold hover:text-blue-800">
+        <a href="about" class="text-blue-950 font-semibold hover:text-blue-800">
           About
         </a>
 
-        <a href="#" class="text-blue-950 font-semibold hover:text-blue-800">
+        <a
+          href="features"
+          class="text-blue-950 font-semibold hover:text-blue-800"
+        >
           Features
         </a>
 
@@ -154,19 +157,27 @@
     <div
       id="mobileMenu"
       style="transform: translateX(100%)"
-      class="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-[linear-gradient(135deg,rgba(89,195,255,0.25),rgba(192,221,187,0.25))] backdrop-blur-3xl px-6 py-8 z-40 shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out"
+      class="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-linear-to-br from-primary-100 to-primary-200 backdrop-blur-3xl px-6 py-8 z-40 shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out"
     >
       <div class="flex flex-col items-center gap-6 mt-35">
-        <a href="#" class="text-white font-semibold text-lg hover:text-blue-300"
+        <a
+          href="home"
+          class="text-white font-semibold text-lg hover:text-blue-300"
           >Home</a
         >
-        <a href="#" class="text-white font-semibold text-lg hover:text-blue-300"
+        <a
+          href="menu"
+          class="text-white font-semibold text-lg hover:text-blue-300"
           >Menu</a
         >
-        <a href="#" class="text-white font-semibold text-lg hover:text-blue-300"
+        <a
+          href="about"
+          class="text-white font-semibold text-lg hover:text-blue-300"
           >About</a
         >
-        <a href="#" class="text-white font-semibold text-lg hover:text-blue-300"
+        <a
+          href="features"
+          class="text-white font-semibold text-lg hover:text-blue-300"
           >Features</a
         >
         <button
@@ -177,7 +188,7 @@
       </div>
     </div>
 
-    <section class="scroll-lift relative w-full overflow-hidden">
+    <section id="home" class="scroll-lift relative w-full overflow-hidden">
       <img
         src="/src/assets/heros/GO-cover-photo.jpg"
         alt=""
@@ -259,6 +270,7 @@
     </section>
 
     <section
+      id="menu"
       class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-100"
     >
       <div class="max-w-6xl mx-auto">
@@ -398,6 +410,7 @@
     </section>
 
     <section
+      id="about"
       class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-50 border border-primary-300"
     >
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -442,7 +455,7 @@
           </p>
 
           <a
-            href="#"
+            href="about"
             class="scroll-lift hover-lift inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors"
           >
             Learn our story
@@ -465,6 +478,7 @@
     </section>
 
     <section
+      id="features"
       class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-white"
     >
       <div class="max-w-6xl mx-auto">
