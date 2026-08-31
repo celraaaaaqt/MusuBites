@@ -26,57 +26,75 @@
       margin: 0;
     }
 
-     .hero-bg {
-    position: relative;
-  }
+    .hero-bg {
+      position: relative;
+    }
 
-  /* Scroll-lift animation */
-.scroll-lift {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
+    /* Scroll-lift animation */
+    .scroll-lift {
+      opacity: 0;
+      transform: translateY(40px);
+      transition:
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-.scroll-lift.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .scroll-lift.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* Optional: stagger children (e.g. feature cards) */
-.scroll-lift-group > * {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
+    /* Optional: stagger children (e.g. feature cards) */
+    .scroll-lift-group > * {
+      opacity: 0;
+      transform: translateY(40px);
+      transition:
+        opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-.scroll-lift-group.is-visible > * {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .scroll-lift-group.is-visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.scroll-lift-group.is-visible > *:nth-child(1) { transition-delay: 0ms; }
-.scroll-lift-group.is-visible > *:nth-child(2) { transition-delay: 100ms; }
-.scroll-lift-group.is-visible > *:nth-child(3) { transition-delay: 200ms; }
-.scroll-lift-group.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+    .scroll-lift-group.is-visible > *:nth-child(1) {
+      transition-delay: 0ms;
+    }
+    .scroll-lift-group.is-visible > *:nth-child(2) {
+      transition-delay: 100ms;
+    }
+    .scroll-lift-group.is-visible > *:nth-child(3) {
+      transition-delay: 200ms;
+    }
+    .scroll-lift-group.is-visible > *:nth-child(4) {
+      transition-delay: 300ms;
+    }
 
-@media (hover: hover) and (pointer: fine) {
-  .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .hover-lift:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 20px 25px -5px rgba(255, 92, 77, 0.2), 0 8px 10px -6px rgba(255, 92, 77, 0.2);
-  }
-}
-@media (hover: none) {
-  .hover-lift:active {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 20px 25px -5px rgba(255, 92, 77, 0.2), 0 8px 10px -6px rgba(255, 92, 77, 0.2);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-}
+    @media (hover: hover) and (pointer: fine) {
+      .hover-lift {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-0.25rem);
+        box-shadow:
+          0 20px 25px -5px rgba(255, 92, 77, 0.2),
+          0 8px 10px -6px rgba(255, 92, 77, 0.2);
+      }
+    }
+    @media (hover: none) {
+      .hover-lift:active {
+        transform: translateY(-0.25rem);
+        box-shadow:
+          0 20px 25px -5px rgba(255, 92, 77, 0.2),
+          0 8px 10px -6px rgba(255, 92, 77, 0.2);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+    }
   </style>
   <body class="font-poppins bg-neutral-50">
     <nav
@@ -89,7 +107,7 @@
       />
 
       <div class="hidden md:flex items-center gap-8">
-        <a href="#" class=" text-blue-950 font-semibold hover:text-blue-800">
+        <a href="#" class="text-blue-950 font-semibold hover:text-blue-800">
           Home
         </a>
 
@@ -160,494 +178,619 @@
     </div>
 
     <section class="scroll-lift relative w-full overflow-hidden">
-  <img
-    src="/src/assets/heros/GO-cover-photo.jpg"
-    alt=""
-    class="absolute inset-0 w-full h-full object-cover blur-sm -z-10"
-  />
-
-  <!-- for mobile -->
-  <div
-    class="absolute inset-0 -z-10 md:hidden"
-    style="background: linear-gradient(to bottom, rgba(15,14,12,0.10) 0%, rgba(253,252,248,0.55) 35%, rgba(253,252,248,1) 85%);"
-  ></div>
-
-  <!-- Desktop: darker on the left, fades to white on the right -->
-  <div
-    class="absolute inset-0 -z-10 hidden md:block"
-    style="background: linear-gradient(to left, rgba(15,14,12,0.55) 0%, rgba(253,252,248,0.25) 50%, rgba(253,252,248,1) 100%);"
-  ></div>
-
-  <div
-    class=" hero-bg relative w-full pt-15 pb-20 px-6 sm:px-10 md:px-16 lg:px-24"
-  >
-    <div class=" max-w-6xl mx-auto">
-      <!-- Badge -->
-      <span
-        class="inline-block bg-primary-400/60 backdrop-blur-md text-primary-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-white/40 shadow-lg shadow-black/5"
-      >
-        Ready, Set... GO!
-      </span>
-
-      <h1
-        class="font-sans font-extrabold text-secondary-800 leading-[0.95] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-3xl"
-      >
-        Tasty.<br />
-        Affordable.<br />
-        Satisfying.
-      </h1>
-
-      <p
-        class="mt-6 text-neutral-600 text-base sm:text-lg max-w-md leading-relaxed"
-      >
-        The perfect snack, crafted with care and ready when you are.
-      </p>
-
-      <!-- CTA -->
-      <button
-        class="hover-lift mt-8 inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-700 focus-visible:ring-offset-2"
-      >
-        Download our app now
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </button>
-    </div>
-  </div>
-</section>
-
-<section class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-100">
-  <div class="max-w-6xl mx-auto">
-    <!-- Section header -->
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <span
-        class="inline-block bg-primary-100 text-primary-800 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-500"
-      >
-        OUR MENU
-      </span>
-      <h2
-        class="font-sans font-extrabold text-secondary-800 leading-tight tracking-tight text-4xl sm:text-5xl"
-      >
-        Pick your<br class="hidden sm:block" /> favorite flavor.
-      </h2>
-      <p class="mt-4 text-neutral-600 text-base sm:text-lg">
-        Every musubi hand-wrapped fresh, ready when you are.
-      </p>
-    </div>
-
-    <!-- Menu items -->
-    <div class="scroll-lift-group grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Item 1 -->
-      <div
-        class="group bg-white border border-primary-200 rounded-2xl overflow-hidden shadow-md shadow-primary-900/5 hover:shadow-xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300"
-      >
-        <div class="relative h-48 overflow-hidden">
-          <img
-            src="/src/assets/heros/GO-cover-final-mobile.png"
-            alt="Classic Spam Musubi"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <span
-            class="absolute top-3 right-3 bg-primary-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow"
-          >
-            Best Seller
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="flex items-start justify-between gap-3">
-            <h3 class="font-sans font-bold text-secondary-800 text-lg">
-              Pork Musubi
-            </h3>
-            <span class="font-bold text-primary-700 whitespace-nowrap">₱45</span>
-          </div>
-          <p class="text-neutral-600 text-sm leading-relaxed mt-2">
-            Grilled spam, seasoned rice, nori — the original that started it all.
-          </p>
-        </div>
-      </div>
-
-      <!-- Item 2 -->
-      <div
-        class="group bg-white border border-primary-200 rounded-2xl overflow-hidden shadow-md shadow-primary-900/5 hover:shadow-xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300"
-      >
-        <div class="relative h-48 overflow-hidden">
-          <img
-            src="/src/assets/heros/GO-cover-final-mobile.png"
-            alt="Teriyaki Chicken Musubi"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-        <div class="p-5">
-          <div class="flex items-start justify-between gap-3">
-            <h3 class="font-sans font-bold text-secondary-800 text-lg">
-              Chicken Musubi
-            </h3>
-            <span class="font-bold text-primary-700 whitespace-nowrap">₱55</span>
-          </div>
-          <p class="text-neutral-600 text-sm leading-relaxed mt-2">
-            Sweet-savory glazed chicken over rice, wrapped nori-tight.
-          </p>
-        </div>
-      </div>
-
-      <!-- Item 3 -->
-      <div
-        class="group bg-white border border-primary-200 rounded-2xl overflow-hidden shadow-md shadow-primary-900/5 hover:shadow-xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300"
-      >
-        <div class="relative h-48 overflow-hidden">
-          <img
-            src="/src/assets/heros/GO-cover-final-mobile.png"
-            alt="Spicy Tuna Musubi"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <span
-            class="absolute top-3 right-3 bg-tertiary-500 text-secondary-900 text-xs font-semibold px-3 py-1 rounded-full shadow"
-          >
-            Spicy
-          </span>
-        </div>
-        <div class="p-5">
-          <div class="flex items-start justify-between gap-3">
-            <h3 class="font-sans font-bold text-secondary-800 text-lg">
-              Spicy Chicken Musubi
-            </h3>
-            <span class="font-bold text-primary-700 whitespace-nowrap">₱50</span>
-          </div>
-          <p class="text-neutral-600 text-sm leading-relaxed mt-2">
-            Creamy spicy tuna mix, a little heat to keep things interesting.
-          </p>
-        </div>
-      </div>
-
-     
-
-    
-
-     
-    </div>
-
-    <!-- View full menu CTA -->
-    <div class="text-center mt-12">
-      
-       <a href="#"
-        class="scroll-lift hover-lift inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors"
-      >
-        View full menu
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-50 border border-primary-300">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-    <!-- Image side -->
-    <div class="relative order-3 md:order-2">
       <img
         src="/src/assets/heros/GO-cover-photo.jpg"
-        alt="MusuGo team preparing musubi"  
-        class="w-full h-80 md:h-[28rem] object-cover rounded-2xl shadow-xl"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover blur-sm -z-10"
       />
+
+      <!-- for mobile -->
       <div
-        class="absolute -bottom-6 -left-6 bg-primary-500 text-white rounded-2xl px-6 py-4 shadow-lg hidden sm:block border"
-      >
-        <p class="text-3xl font-extrabold leading-none">35</p>
-        <p class="text-sm text-primary-100 mt-1">Happy customers daily</p>
-      </div>
-    </div>
+        class="absolute inset-0 -z-10 md:hidden"
+        style="
+          background: linear-gradient(
+            to bottom,
+            rgba(15, 14, 12, 0.1) 0%,
+            rgba(253, 252, 248, 0.55) 35%,
+            rgba(253, 252, 248, 1) 85%
+          );
+        "
+      ></div>
 
-    <!-- Text side -->
-    <div class="order-1 md:order-2 text-center">
-      <span
-        class="inline-block bg-primary-100 text-primary-800 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-500"
-      >
-        ABOUT US
-      </span>
-
-      <h2
-        class="font-sans font-extrabold text-secondary-800 leading-tight tracking-tight text-4xl sm:text-5xl mb-6"
-      >
-        Made FRESH,<br>crave more.
-      </h2>
-
-      <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-4">
-        MusuGo started with one goal: make musubi that's tasty, affordable,
-        and always fresh. Every piece is seasoned, seared, and wrapped by
-        hand — no shortcuts, no compromises.
-      </p>
-
-      <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-8">
-        From our cart to your hands in minutes, we're bringing a Japanese-like 
-        favorite to your everyday cravings.
-      </p>
-
-      
-       <a href="#"
-        class="scroll-lift hover-lift inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors"
-      >
-        Learn our story
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-white">
-  <div class="max-w-6xl mx-auto">
-    <!-- Section header -->
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <span
-        class="inline-block bg-primary-100 text-primary-800 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-500"
-      >
-        WHY MUSUGO
-      </span>
-      <h2
-        class="font-sans font-extrabold text-secondary-800 leading-tight tracking-tight text-4xl sm:text-5xl"
-      >
-        Built different,<br class="hidden sm:block" /> tastes better.
-      </h2>
-    </div>
-
-    <!-- Feature cards -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Card 1 -->
+      <!-- Desktop: darker on the left, fades to white on the right -->
       <div
-        class="scroll-lift bg-neutral-50 border border-primary-200 rounded-2xl p-6 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+        class="absolute inset-0 -z-10 hidden md:block"
+        style="
+          background: linear-gradient(
+            to left,
+            rgba(15, 14, 12, 0.55) 0%,
+            rgba(253, 252, 248, 0.25) 50%,
+            rgba(253, 252, 248, 1) 100%
+          );
+        "
+      ></div>
+
+      <div
+        class="hero-bg relative w-full pt-15 pb-20 px-6 sm:px-10 md:px-16 lg:px-24"
       >
-        <div
-          class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-600 text-white mb-5"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2v20M2 12h20" />
-          </svg>
+        <div class="max-w-6xl mx-auto">
+          <!-- Badge -->
+          <span
+            class="inline-block bg-primary-400/60 backdrop-blur-md text-primary-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-white/40 shadow-lg shadow-black/5"
+          >
+            Ready, Set... GO!
+          </span>
+
+          <h1
+            class="font-sans font-extrabold text-secondary-800 leading-[0.95] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-3xl"
+          >
+            Tasty.<br />
+            Affordable.<br />
+            Satisfying.
+          </h1>
+
+          <p
+            class="mt-6 text-neutral-600 text-base sm:text-lg max-w-md leading-relaxed"
+          >
+            The perfect snack, crafted with care and ready when you are.
+          </p>
+
+          <!-- CTA -->
+          <button
+            class="hover-lift mt-8 inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-700 focus-visible:ring-offset-2"
+          >
+            Download our app now
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
-        <h3 class="font-sans font-bold text-secondary-800 text-lg mb-2">
-          Always Fresh
-        </h3>
-        <p class="text-neutral-600 text-sm leading-relaxed">
-          Seasoned, seared, and wrapped by hand — never sitting around, never stale.
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div
-        class= "scroll-lift bg-neutral-50 border border-primary-200 rounded-2xl p-6 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-      >
-        <div
-          class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-600 text-white mb-5"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 6v6l4 2" />
-          </svg>
-        </div>
-        <h3 class="font-sans font-bold text-secondary-800 text-lg mb-2">
-          Ready in Minutes
-        </h3>
-        <p class="text-neutral-600 text-sm leading-relaxed">
-          From our cart to your hands fast, without cutting any corners.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div
-        class="scroll-lift bg-neutral-50 border border-primary-200 rounded-2xl p-6 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-      >
-        <div
-          class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-600 text-white mb-5"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-          </svg>
-        </div>
-        <h3 class="font-sans font-bold text-secondary-800 text-lg mb-2">
-          Budget Friendly
-        </h3>
-        <p class="text-neutral-600 text-sm leading-relaxed">
-          A satisfying snack that doesn't put a dent in your daily budget.
-        </p>
-      </div>
-
-      <!-- Card 4 -->
-      <div
-        class="scroll-lift bg-neutral-50 border border-primary-200 rounded-2xl p-6 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-      >
-        <div
-          class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-600 text-white mb-5"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
-        </div>
-        <h3 class="font-sans font-bold text-secondary-800 text-lg mb-2">
-          Made with Care
-        </h3>
-        <p class="text-neutral-600 text-sm leading-relaxed">
-          No shortcuts, no compromises — every piece made by hand.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section class="scroll-lift min-h-screen flex justify-center items-start pt-5">
-      <div
-        class="w-[90%] max-w-4xl bg-gradient-to-br from-primary-500 to-primary-200 backdrop-blur-xsm rounded-xl border border-primary-900 shadow-2xl p-7 md:p-14 text-white"
-      >
-        <br />
-        <p class="text-4xl sm:text5xl font-semibold mb-3 text-center p-20">
-          Ready to taste our
-          <span class="text-blue-200">MusuGo</span>?
-        </p>
-        <a
-          href="https://www.facebook.com/MusuGo"
-          class="scroll-lift hover-lift block w-fit mx-auto bg-primary-600 rounded-xl px-6 py-3 text-white font-medium hover:bg-primary-800 transition"
-        >
-          Order Now
-        </a>
       </div>
     </section>
 
-    <footer class="w-full bg-gradient-to-br from-secondary-800 to-secondary-900 text-white">
-  <div class="max-w-6xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <section
+      class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-100"
+    >
+      <div class="max-w-6xl mx-auto">
+        <!-- Section header -->
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span
+            class="inline-block bg-primary-100 text-primary-800 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-500"
+          >
+            OUR MENU
+          </span>
+          <h2
+            class="font-sans font-extrabold text-secondary-800 leading-tight tracking-tight text-4xl sm:text-5xl"
+          >
+            Pick your<br class="hidden sm:block" />
+            favorite flavor.
+          </h2>
+          <p class="mt-4 text-neutral-600 text-base sm:text-lg">
+            Every musubi hand-wrapped fresh, ready when you are.
+          </p>
+        </div>
 
-      <!-- Brand column -->
-      <div class="lg:col-span-2">
-        <img
-          class="w-32 h-16 object-contain -ml-2"
-          src="src/assets/heros/revised_logo-removebg-preview.png"
-          alt="MusuGo Logo"
-        />
-        <p class="text-neutral-300 text-sm leading-relaxed max-w-xs mt-2">
-          Tasty, affordable, and always fresh musubi — seasoned, seared,
-          and wrapped by hand from our cart to your hands.
-        </p>
+        <!-- Menu items -->
+        <div class="scroll-lift-group grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Item 1 -->
+          <div
+            class="group bg-white border border-primary-200 rounded-2xl overflow-hidden shadow-md shadow-primary-900/5 hover:shadow-xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="/src/assets/heros/GO-cover-final-mobile.png"
+                alt="Classic Spam Musubi"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 right-3 bg-primary-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow"
+              >
+                Best Seller
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-sans font-bold text-secondary-800 text-lg">
+                  Pork Musubi
+                </h3>
+                <span class="font-bold text-primary-700 whitespace-nowrap"
+                  >₱45</span
+                >
+              </div>
+              <p class="text-neutral-600 text-sm leading-relaxed mt-2">
+                Grilled spam, seasoned rice, nori — the original that started it
+                all.
+              </p>
+            </div>
+          </div>
 
-        <!-- Socials -->
-        <div class="flex items-center gap-4 mt-6">
-          
-           <a href="https://www.facebook.com/MusuGo"
-            aria-label="Facebook"
-            class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary-600 transition-colors"
+          <!-- Item 2 -->
+          <div
+            class="group bg-white border border-primary-200 rounded-2xl overflow-hidden shadow-md shadow-primary-900/5 hover:shadow-xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z" />
-            </svg>
-          </a>
-          
-          <a href="#"
-            aria-label="Instagram"
-            class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary-600 transition-colors"
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="/src/assets/heros/GO-cover-final-mobile.png"
+                alt="Teriyaki Chicken Musubi"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-sans font-bold text-secondary-800 text-lg">
+                  Chicken Musubi
+                </h3>
+                <span class="font-bold text-primary-700 whitespace-nowrap"
+                  >₱55</span
+                >
+              </div>
+              <p class="text-neutral-600 text-sm leading-relaxed mt-2">
+                Sweet-savory glazed chicken over rice, wrapped nori-tight.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div
+            class="group bg-white border border-primary-200 rounded-2xl overflow-hidden shadow-md shadow-primary-900/5 hover:shadow-xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-            </svg>
-          </a>
-          
-          <a href="#"
-            aria-label="TikTok"
-            class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary-600 transition-colors"
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="/src/assets/heros/GO-cover-final-mobile.png"
+                alt="Spicy Tuna Musubi"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 right-3 bg-tertiary-500 text-secondary-900 text-xs font-semibold px-3 py-1 rounded-full shadow"
+              >
+                Spicy
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-sans font-bold text-secondary-800 text-lg">
+                  Spicy Chicken Musubi
+                </h3>
+                <span class="font-bold text-primary-700 whitespace-nowrap"
+                  >₱50</span
+                >
+              </div>
+              <p class="text-neutral-600 text-sm leading-relaxed mt-2">
+                Creamy spicy tuna mix, a little heat to keep things interesting.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- View full menu CTA -->
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="scroll-lift hover-lift inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
+            View full menu
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
         </div>
       </div>
+    </section>
 
-      <!-- Quick links -->
-      <div>
-        <h4 class="font-semibold font-sans text-white text-base mb-4">QUICK LINKS</h4>
-        <ul class="space-y-3 text-sm text-neutral-300">
-          <li><a href="#" class="hover:text-primary-300 transition-colors">Home</a></li>
-          <li><a href="#" class="hover:text-primary-300 transition-colors">Menu</a></li>
-          <li><a href="#" class="hover:text-primary-300 transition-colors">About</a></li>
-          <li><a href="#" class="hover:text-primary-300 transition-colors">Features</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <h4 class="font-semibold font-sans text-white text-base mb-4">GET IN TOUCH</h4>
-        <ul class="space-y-3 text-sm text-neutral-300">
-          <li class="flex items-start gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            <span>0930-869-9411</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16v16H4z" opacity="0" />
-              <path d="M22 6l-10 7L2 6" />
-              <path d="M2 6h20v12H2z" />
-            </svg>
-            <span>musugo.business@gmail.com</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            <span>Calooacan City, Philippines</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bottom bar -->
-    <div
-      class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-400"
+    <section
+      class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-50 border border-primary-300"
     >
-      <p>&copy; <span id="year"></span> MusuGo. All rights reserved.</p>
-      <div class="flex gap-6">
-        <a href="#" class="hover:text-primary-300 transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-primary-300 transition-colors">Terms of Service</a>
-      </div>
-    </div>
-  </div>
-</footer>
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <!-- Image side -->
+        <div class="relative order-3 md:order-2">
+          <img
+            src="/src/assets/heros/GO-cover-photo.jpg"
+            alt="MusuGo team preparing musubi"
+            class="w-full h-80 md:h-[28rem] object-cover rounded-2xl shadow-xl"
+          />
+          <div
+            class="absolute -bottom-6 -left-6 bg-primary-500 text-white rounded-2xl px-6 py-4 shadow-lg hidden sm:block border"
+          >
+            <p class="text-3xl font-extrabold leading-none">35</p>
+            <p class="text-sm text-primary-100 mt-1">Happy customers daily</p>
+          </div>
+        </div>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+        <!-- Text side -->
+        <div class="order-1 md:order-2 text-center">
+          <span
+            class="inline-block bg-primary-100 text-primary-800 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-500"
+          >
+            ABOUT US
+          </span>
+
+          <h2
+            class="font-sans font-extrabold text-secondary-800 leading-tight tracking-tight text-4xl sm:text-5xl mb-6"
+          >
+            Made FRESH,<br />crave more.
+          </h2>
+
+          <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-4">
+            MusuGo started with one goal: make musubi that's tasty, affordable,
+            and always fresh. Every piece is seasoned, seared, and wrapped by
+            hand — no shortcuts, no compromises.
+          </p>
+
+          <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-8">
+            From our cart to your hands in minutes, we're bringing a
+            Japanese-like favorite to your everyday cravings.
+          </p>
+
+          <a
+            href="#"
+            class="scroll-lift hover-lift inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors"
+          >
+            Learn our story
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-white"
+    >
+      <div class="max-w-6xl mx-auto">
+        <!-- Section header -->
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span
+            class="inline-block bg-primary-100 text-primary-800 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-500"
+          >
+            WHY MUSUGO
+          </span>
+          <h2
+            class="font-sans font-extrabold text-secondary-800 leading-tight tracking-tight text-4xl sm:text-5xl"
+          >
+            Built different,<br class="hidden sm:block" />
+            tastes better.
+          </h2>
+        </div>
+
+        <!-- Feature cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div
+            class="scroll-lift bg-neutral-50 border border-primary-200 rounded-2xl p-6 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+          >
+            <div
+              class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-600 text-white mb-5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2v20M2 12h20" />
+              </svg>
+            </div>
+            <h3 class="font-sans font-bold text-secondary-800 text-lg mb-2">
+              Always Fresh
+            </h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">
+              Seasoned, seared, and wrapped by hand — never sitting around,
+              never stale.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="scroll-lift bg-neutral-50 border border-primary-200 rounded-2xl p-6 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+          >
+            <div
+              class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-600 text-white mb-5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <h3 class="font-sans font-bold text-secondary-800 text-lg mb-2">
+              Ready in Minutes
+            </h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">
+              From our cart to your hands fast, without cutting any corners.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="scroll-lift bg-neutral-50 border border-primary-200 rounded-2xl p-6 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+          >
+            <div
+              class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-600 text-white mb-5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                />
+              </svg>
+            </div>
+            <h3 class="font-sans font-bold text-secondary-800 text-lg mb-2">
+              Budget Friendly
+            </h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">
+              A satisfying snack that doesn't put a dent in your daily budget.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="scroll-lift bg-neutral-50 border border-primary-200 rounded-2xl p-6 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+          >
+            <div
+              class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-600 text-white mb-5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-sans font-bold text-secondary-800 text-lg mb-2">
+              Made with Care
+            </h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">
+              No shortcuts, no compromises — every piece made by hand.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="w-full bg-gradient-to-br from-secondary-800 to-secondary-900 text-white"
+    >
+      <div class="max-w-6xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <!-- Brand column -->
+          <div class="lg:col-span-2">
+            <img
+              class="w-32 h-16 object-contain -ml-2"
+              src="src/assets/heros/revised_logo-removebg-preview.png"
+              alt="MusuGo Logo"
+            />
+            <p class="text-neutral-300 text-sm leading-relaxed max-w-xs mt-2">
+              Tasty, affordable, and always fresh musubi — seasoned, seared, and
+              wrapped by hand from our cart to your hands.
+            </p>
+
+            <!-- Socials -->
+            <div class="flex items-center gap-4 mt-6">
+              <a
+                href="https://www.facebook.com/MusuGo"
+                aria-label="Facebook"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary-600 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="#"
+                aria-label="Instagram"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary-600 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+
+              <a
+                href="#"
+                aria-label="TikTok"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary-600 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick links -->
+          <div>
+            <h4 class="font-semibold font-sans text-white text-base mb-4">
+              QUICK LINKS
+            </h4>
+            <ul class="space-y-3 text-sm text-neutral-300">
+              <li>
+                <a href="#" class="hover:text-primary-300 transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary-300 transition-colors"
+                  >Menu</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary-300 transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary-300 transition-colors"
+                  >Features</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h4 class="font-semibold font-sans text-white text-base mb-4">
+              GET IN TOUCH
+            </h4>
+            <ul class="space-y-3 text-sm text-neutral-300">
+              <li class="flex items-start gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 mt-0.5 shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                <span>0930-869-9411</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 mt-0.5 shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 4h16v16H4z" opacity="0" />
+                  <path d="M22 6l-10 7L2 6" />
+                  <path d="M2 6h20v12H2z" />
+                </svg>
+                <span>musugo.business@gmail.com</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 mt-0.5 shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>Calooacan City, Philippines</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div
+          class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-400"
+        >
+          <p>&copy; <span id="year"></span> MusuGo. All rights reserved.</p>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-primary-300 transition-colors"
+              >Privacy Policy</a
+            >
+            <a href="#" class="hover:text-primary-300 transition-colors"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/smoothscroll.js"></script>
