@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/jpeg" href="/src/assets/heros/musugo-official-logo.jpg">
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="/src/assets/heros/musugo-official-logo.jpg"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -15,47 +19,35 @@
     <title>MusuGo</title>
   </head>
   <style>
-  html,
-  body {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  body {
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("/src/assets/heros/GO-cover-photo.jpg");
-
-    background-size: cover;
-    background-position: center 80%;
-    background-repeat: no-repeat;
-  }
-
-  @media (max-width: 748px) {
+    html,
     body {
-      background-image:
-        linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.70)),
-        linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.60)),
-        url("src/assets/heros/GO-cover-final-mobile.png");
-
-      background-position: center;
-      background-attachment: scroll;
+      width: 100%;
+      padding: 0;
+      margin: 0;
     }
-  }
-</style>
-  <body
-    class="font-poppins">
-<nav
-  class="sticky top-0 z-50 flex items-center justify-between
-  w-[90%] mx-auto px-4 sm:px-6 py-2
- bg-gradient-to-br from-[#59c3ff]/100 to-[#c0ddbb]/70 backdrop-blur-sm
-  border border-white/20 rounded-3xl
-  shadow-xl shadow-black/20
-"
->
+
+    .hero-bg {
+      background-image:
+        linear-gradient(
+          to bottom,
+          rgba(15, 14, 12, 0.15) 0%,
+          rgba(253, 252, 248, 1) 92%
+        ),
+        radial-gradient(
+          circle at 30% 20%,
+          #e8ddc8 0%,
+          #cbb896 45%,
+          #8a7452 100%
+        ),
+        url("src/assets/heros/GO-cover-photo.jpg");
+    }
+  </style>
+  <body class="font-poppins bg-neutral-50">
+    <nav
+      class="sticky top-0 z-50 flex items-center justify-between w-[100%] mx-auto px-4 sm:px-6 py-2 bg-linear-to-br from-primary-500 to-primary-200 backdrop-blur-sm border border-white/20 shadow-xl shadow-black/20"
+    >
       <img
-        class="w-30 h-16 sm:w-30 sm:h-20 object-contain"
+        class="w-30 h-16 sm:w-30 sm:h-15 object-contain"
         src="src/assets/heros/revised_logo-removebg-preview.png"
         alt="MusuGo Logo"
       />
@@ -83,25 +75,34 @@
           Contact Us
         </button>
       </div>
-     <button
-  id="menuBtn"
-  class="md:hidden relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 z-50"
-  aria-label="Open menu"
-  aria-expanded="false"
-  aria-controls="mobileMenu"
->
-  <span id="bar1" class="block w-7 h-0.5 bg-blue-950 rounded-full transition-all duration-300 ease-in-out"></span>
-  <span id="bar2" class="block w-7 h-0.5 bg-blue-950 rounded-full transition-all duration-300 ease-in-out"></span>
-  <span id="bar3" class="block w-7 h-0.5 bg-blue-950 rounded-full transition-all duration-300 ease-in-out"></span>
-</button>
+      <button
+        id="menuBtn"
+        class="md:hidden relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 z-50"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span
+          id="bar1"
+          class="block w-7 h-0.5 bg-blue-950 rounded-full transition-all duration-300 ease-in-out"
+        ></span>
+        <span
+          id="bar2"
+          class="block w-7 h-0.5 bg-blue-950 rounded-full transition-all duration-300 ease-in-out"
+        ></span>
+        <span
+          id="bar3"
+          class="block w-7 h-0.5 bg-blue-950 rounded-full transition-all duration-300 ease-in-out"
+        ></span>
+      </button>
     </nav>
 
     <div
-  id="mobileMenu"
-  style="transform: translateX(100%);"
-  class="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-[linear-gradient(135deg,rgba(89,195,255,0.25),rgba(192,221,187,0.25))] backdrop-blur-3xl px-6 py-8 z-40 shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out"
->
-      <div class="flex flex-col items-center gap-6 mt-35">  
+      id="mobileMenu"
+      style="transform: translateX(100%)"
+      class="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-[linear-gradient(135deg,rgba(89,195,255,0.25),rgba(192,221,187,0.25))] backdrop-blur-3xl px-6 py-8 z-40 shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out"
+    >
+      <div class="flex flex-col items-center gap-6 mt-35">
         <a href="#" class="text-white font-semibold text-lg hover:text-blue-300"
           >Home</a
         >
@@ -122,24 +123,70 @@
       </div>
     </div>
 
-    <section class="min-h-screen flex justify-center items-start pt-20">
+    <section class="relative w-full overflow-hidden">
+      <!-- Background photo area — swap this div's background-image for your real product photo -->
       <div
-       class="w-[90%] max-w-4xl bg-gradient-to-br from-[#59c3ff]/30 to-[#c0ddbb]/10 backdrop-blur-xxsm rounded-xl border border-white/50 shadow-2xl p-7 md:p-14 text-white"
+        class="hero-bg relative w-full pt-28 pb-20 px-6 sm:px-10 md:px-16 lg:px-24"
       >
-      <h1
-      class="text-2xl sm:text-2xl font-bold sm:text-white">
-          READY, SET... &nbsp GO!
-        </h1>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p class="text-4xl sm:text5xl font-semibold mb-8 text-center">
+        <div class="max-w-6xl mx-auto">
+          <!-- Badge -->
+          <span
+            class="inline-block bg-primary-100 text-primary-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6"
+          >
+            Street-Side Fresh
+          </span>
+
+          <!-- Headline -->
+          <h1
+            class="font-heading font-extrabold text-secondary-800 leading-[0.95] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-3xl"
+          >
+            Tasty.<br />
+            Affordable.<br />
+            Satisfying.
+          </h1>
+
+          <!-- Subtext -->
+          <p
+            class="mt-6 text-neutral-600 text-base sm:text-lg max-w-md leading-relaxed"
+          >
+            The perfect snack, crafted with care and ready when you are.
+          </p>
+
+          <!-- CTA -->
+          <button
+            class="mt-8 inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-full shadow-lg shadow-primary-500/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-700 focus-visible:ring-offset-2"
+          >
+            Order Now
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="min-h-screen flex justify-center items-start pt-5">
+      <div
+        class="w-[90%] max-w-4xl bg-gradient-to-br from-primary-500 to-primary-200 backdrop-blur-xsm rounded-xl border border-primary-900 shadow-2xl p-7 md:p-14 text-white"
+      >
+        <br />
+        <p class="text-4xl sm:text5xl font-semibold mb-3 text-center p-20">
           Ready to taste our
           <span class="text-blue-200">MusuGo</span>?
         </p>
-        <a href="https://www.facebook.com/MusuGo"
-          class="block w-fit mx-auto bg-blue-500 rounded-xl px-6 py-3 text-white font-medium hover:bg-blue-800 transition"
+        <a
+          href="https://www.facebook.com/MusuGo"
+          class="block w-fit mx-auto bg-primary-600 rounded-xl px-6 py-3 text-white font-medium hover:bg-primary-800 transition"
         >
           Order Now
         </a>
