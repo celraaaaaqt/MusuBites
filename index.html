@@ -26,25 +26,15 @@
       margin: 0;
     }
 
-    .hero-bg {
-      background-image:
-        linear-gradient(
-          to bottom,
-          rgba(15, 14, 12, 0.15) 0%,
-          rgba(253, 252, 248, 1) 92%
-        ),
-        radial-gradient(
-          circle at 30% 20%,
-          #e8ddc8 0%,
-          #cbb896 45%,
-          #8a7452 100%
-        ),
-        url("src/assets/heros/GO-cover-photo.jpg");
-    }
+     .hero-bg {
+    position: relative;
+  }
+
+
   </style>
   <body class="font-poppins bg-neutral-50">
     <nav
-      class="sticky top-0 z-50 flex items-center justify-between w-[100%] mx-auto px-4 sm:px-6 py-2 bg-linear-to-br from-primary-500 to-primary-200 backdrop-blur-sm border border-white/20 shadow-xl shadow-black/20"
+      class="sticky top-0 z-50 flex items-center justify-between w-[100%] mx-auto px-4 sm:px-6 py-2 bg-linear-to-br from-primary-300 to-primary-100 backdrop-blur-sm border border-white/20 shadow-xl shadow-black/20"
     >
       <img
         class="w-30 h-16 sm:w-30 sm:h-15 object-contain"
@@ -70,7 +60,7 @@
         </a>
 
         <button
-          class="bg-blue-500 rounded-xl px-5 py-2 text-white hover:bg-blue-800 transition"
+          class="bg-primary-600 rounded-xl px-5 py-2 text-white hover:bg-primary-800 transition"
         >
           Contact Us
         </button>
@@ -116,7 +106,7 @@
           >Socmeds</a
         >
         <button
-          class="bg-blue-500 rounded-xl px-6 py-3 text-white font-medium hover:bg-blue-800 transition w-full"
+          class="bg-primary-600 rounded-xl px-6 py-3 text-white font-medium hover:bg-primary-800 transition w-full"
         >
           Contact Us
         </button>
@@ -124,56 +114,137 @@
     </div>
 
     <section class="relative w-full overflow-hidden">
-      <!-- Background photo area — swap this div's background-image for your real product photo -->
-      <div
-        class="hero-bg relative w-full pt-28 pb-20 px-6 sm:px-10 md:px-16 lg:px-24"
+  <img
+    src="/src/assets/heros/GO-cover-photo.jpg"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover blur-sm -z-10"
+  />
+
+  <!-- for mobile -->
+  <div
+    class="absolute inset-0 -z-10 md:hidden"
+    style="background: linear-gradient(to bottom, rgba(15,14,12,0.10) 0%, rgba(253,252,248,0.55) 35%, rgba(253,252,248,1) 85%);"
+  ></div>
+
+  <!-- Desktop: darker on the left, fades to white on the right -->
+  <div
+    class="absolute inset-0 -z-10 hidden md:block"
+    style="background: linear-gradient(to left, rgba(15,14,12,0.55) 0%, rgba(253,252,248,0.25) 50%, rgba(253,252,248,1) 100%);"
+  ></div>
+
+  <div
+    class="hero-bg relative w-full pt-15 pb-20 px-6 sm:px-10 md:px-16 lg:px-24"
+  >
+    <div class="max-w-6xl mx-auto">
+      <!-- Badge -->
+      <span
+        class="inline-block bg-primary-400/60 backdrop-blur-md text-primary-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-white/40 shadow-lg shadow-black/5"
       >
-        <div class="max-w-6xl mx-auto">
-          <!-- Badge -->
-          <span
-            class="inline-block bg-primary-100 text-primary-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6"
-          >
-            Street-Side Fresh
-          </span>
+        Ready, Set... GO!
+      </span>
 
-          <!-- Headline -->
-          <h1
-            class="font-heading font-extrabold text-secondary-800 leading-[0.95] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-3xl"
-          >
-            Tasty.<br />
-            Affordable.<br />
-            Satisfying.
-          </h1>
+      <h1
+        class="font-heading font-extrabold text-secondary-800 leading-[0.95] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-3xl"
+      >
+        Tasty.<br />
+        Affordable.<br />
+        Satisfying.
+      </h1>
 
-          <!-- Subtext -->
-          <p
-            class="mt-6 text-neutral-600 text-base sm:text-lg max-w-md leading-relaxed"
-          >
-            The perfect snack, crafted with care and ready when you are.
-          </p>
+      <p
+        class="mt-6 text-neutral-600 text-base sm:text-lg max-w-md leading-relaxed"
+      >
+        The perfect snack, crafted with care and ready when you are.
+      </p>
 
-          <!-- CTA -->
-          <button
-            class="mt-8 inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-full shadow-lg shadow-primary-500/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-700 focus-visible:ring-offset-2"
-          >
-            Order Now
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-        </div>
+      <!-- CTA -->
+      <button
+        class="mt-8 inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-700 focus-visible:ring-offset-2"
+      >
+        Download our app now
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<section class="w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-50">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <!-- Image side -->
+    <div class="relative order-2 md:order-1">
+      <img
+        src="/src/assets/heros/about-us-photo.jpg"
+        alt="MusuGo team preparing musubi"
+        class="w-full h-80 md:h-[28rem] object-cover rounded-2xl shadow-xl"
+      />
+      <div
+        class="absolute -bottom-6 -right-6 bg-primary-700 text-white rounded-2xl px-6 py-4 shadow-lg hidden sm:block"
+      >
+        <p class="text-3xl font-extrabold leading-none">500+</p>
+        <p class="text-sm text-primary-100 mt-1">Happy customers daily</p>
       </div>
-    </section>
+    </div>
+
+    <!-- Text side -->
+    <div class="order-1 md:order-2">
+      <span
+        class="inline-block bg-primary-100 text-primary-800 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-500"
+      >
+        About Us
+      </span>
+
+      <h2
+        class="font-heading font-extrabold text-secondary-800 leading-tight tracking-tight text-4xl sm:text-5xl mb-6"
+      >
+        Made fresh,<br />street-side.
+      </h2>
+
+      <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-4">
+        MusuGo started with one goal: make musubi that's tasty, affordable,
+        and always fresh. Every piece is seasoned, seared, and wrapped by
+        hand — no shortcuts, no compromises.
+      </p>
+
+      <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-8">
+        From our cart to your hands in minutes, we're bringing a Hawaiian
+        street-food favorite to your everyday cravings.
+      </p>
+
+      
+       <a href="#"
+        class="inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors"
+      >
+        Learn our story
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
 
     <section class="min-h-screen flex justify-center items-start pt-5">
       <div
