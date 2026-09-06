@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="/src/style.css" />
     <link
       rel="icon"
       type="image/jpeg"
@@ -16,8 +17,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <title>MusuGo</title>
-  </head>
   <style>
     html,
     body {
@@ -26,81 +27,8 @@
       margin: 0;
     }
 
-    .hero-bg {
-      position: relative;
-    }
-
-    /* Scroll-lift animation */
-    /* Base = MOBILE: each card lifts independently */
-    .scroll-lift {
-      opacity: 0;
-      transform: translateY(40px);
-      transition:
-        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .scroll-lift.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Group wrapper itself never animates on its own */
-    .scroll-lift-group {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* DESKTOP: group takes over, cards no longer trigger themselves */
-    @media (min-width: 768px) {
-      .scroll-lift-group > .scroll-lift {
-        transition-duration: 0.6s;
-      }
-
-      /* card's own .is-visible is ignored here — group's is-visible
-     controls it via this higher-specificity descendant rule */
-      .scroll-lift-group.is-visible > .scroll-lift {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .scroll-lift-group.is-visible > .scroll-lift:nth-child(1) {
-        transition-delay: 0ms;
-      }
-      .scroll-lift-group.is-visible > .scroll-lift:nth-child(2) {
-        transition-delay: 100ms;
-      }
-      .scroll-lift-group.is-visible > .scroll-lift:nth-child(3) {
-        transition-delay: 200ms;
-      }
-      .scroll-lift-group.is-visible > .scroll-lift:nth-child(4) {
-        transition-delay: 300ms;
-      }
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .hover-lift {
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-      .hover-lift:hover {
-        transform: translateY(-0.25rem);
-        box-shadow:
-          0 20px 25px -5px rgba(255, 92, 77, 0.2),
-          0 8px 10px -6px rgba(255, 92, 77, 0.2);
-      }
-    }
-    @media (hover: none) {
-      .hover-lift:active {
-        transform: translateY(-0.25rem);
-        box-shadow:
-          0 20px 25px -5px rgba(255, 92, 77, 0.2),
-          0 8px 10px -6px rgba(255, 92, 77, 0.2);
-        transition:
-          transform 0.15s ease,
-          box-shadow 0.15s ease;
-      }
-    }
   </style>
+    </head>
   <body class="font-poppins bg-neutral-50">
     <nav
       class="sticky top-0 z-50 flex items-center justify-between w-full mx-auto px-4 sm:px-6 py-2 bg-linear-to-br from-primary-300 to-primary-100 backdrop-blur-sm border border-white/20 shadow-xl shadow-black/20"
@@ -136,7 +64,7 @@
 
         <button
           id="openModal"
-          class="bg-primary-600 rounded-xl px-5 py-2 text-white hover:bg-primary-800 transition"
+          class="bg-primary-600 rounded-xl px-5 py-2 text-white hover:bg-primary-800 transition cursor-pointer"
         >
           Drop Feedback
         </button>
@@ -174,6 +102,7 @@
         <span
           id="closeModal"
           class="close absolute top-2 right-3 text-primary-500 cursor-pointer text-xl"
+          aria-label="Close feedback form"
           >✖</span
         >
         <h2 class="text-2xl text-blue-900 font-extrabold mb-4">We'd love to hear a feedback from you!</h2>
@@ -226,10 +155,14 @@
     </div>
 
     <div
-      id="mobileMenu"
-      style="transform: translateX(100%)"
-      class="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-linear-to-br from-primary-100 to-primary-200 backdrop-blur-3xl px-6 py-8 z-40 shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out"
-    >
+  id="mobileMenu"
+  class="fixed top-0 right-0 h-full w-3/4 max-w-xs
+         bg-linear-to-br from-primary-100 to-primary-200
+         px-6 py-8 z-40 shadow-2xl
+         transform translate-x-full
+         transition-transform duration-500 ease-in-out
+         md:hidden"
+>
       <div class="flex flex-col items-center gap-6 mt-35">
         <a
           href="#home"
@@ -253,14 +186,14 @@
         >
         <button
           id="openModalMobile"
-          class="scroll-lift hover-lift bg-primary-600 rounded-xl px-6 py-3 text-white font-medium hover:bg-primary-800 transition w-full"
+          class="scroll-lift hover-lift bg-primary-600 rounded-xl px-6 py-3 text-white font-medium hover:bg-primary-800 transition w-full cursor-pointer"
         >
           Drop Feedback
         </button>
       </div>
     </div>
 
-    <section id="home" class="scroll-lift relative w-full overflow-hidden">
+    <section id="home" class="relative w-full overflow-hidden">
       <img
         src="/src/assets/heros/GO-cover-photo.jpg"
         alt="Musugo Home Picture"
@@ -296,7 +229,7 @@
       <div
         class="hero-bg relative w-full pt-15 pb-20 px-6 sm:px-10 md:px-16 lg:px-24"
       >
-        <div class="max-w-6xl mx-auto">
+        <div class="scroll-lift max-w-6xl mx-auto">
           <!-- Badge -->
           <span
             class="inline-block bg-primary-400/60 backdrop-blur-md text-primary-900 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-white/40 shadow-lg shadow-black/5"
@@ -321,7 +254,7 @@
           <!-- CTA -->
           <button
             id="downloadButton"
-            class="hover-lift mt-8 inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-700 focus-visible:ring-offset-2"
+            class="hover-lift mt-8 inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base cursor-pointer px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-700 focus-visible:ring-offset-2"
           >
             Download our app now
             <svg
@@ -371,7 +304,7 @@
           <div
             class="scroll-lift hover-lift bg-white border border-primary-200 rounded-2xl overflow-hidden shadow-md shadow-primary-900/5 hover:shadow-xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300"
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="group relative h-48 overflow-hidden">
               <img
                 src="/src/assets/heros/GO-cover-final-mobile.png"
                 alt="Pork Musubi"
@@ -403,7 +336,7 @@
           <div
             class="scroll-lift hover-lift bg-white border border-primary-200 rounded-2xl overflow-hidden shadow-md shadow-primary-900/5 hover:shadow-xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300"
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="group relative h-48 overflow-hidden">
               <img
                 src="/src/assets/heros/GO-cover-final-mobile.png"
                 alt="Chicken Musubi"
@@ -429,7 +362,7 @@
           <div
             class="scroll-lift hover-lift bg-white border border-primary-200 rounded-2xl overflow-hidden shadow-md shadow-primary-900/5 hover:shadow-xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300"
           >
-            <div class="relative h-48 overflow-hidden">
+            <div class="group relative h-48 overflow-hidden">
               <img
                 src="/src/assets/heros/GO-cover-final-mobile.png"
                 alt="Spicy Chicken Musubi"
@@ -484,11 +417,11 @@
 
     <section
       id="about"
-      class="scroll-lift w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-50 border border-primary-300"
+      class="w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-50 border border-primary-300"
     >
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <!-- Image side -->
-        <div class="relative order-3 md:order-2">
+        <div class="relative  md:order-2">
           <img
             src="/src/assets/heros/GO-cover-photo.jpg"
             alt="MusuGo team"
@@ -497,32 +430,32 @@
           <div
             class="scroll-lift hover-lift absolute -bottom-6 -left-6 bg-primary-500 text-white rounded-2xl px-6 py-4 shadow-lg hidden sm:block border"
           >
-            <p class="text-3xl font-extrabold leading-none">35</p>
-            <p class="text-sm text-primary-100 mt-1">Happy customers daily</p>
+            <p class="scroll-lift text-3xl font-extrabold leading-none">35+</p>
+            <p class="scroll-lifttext-sm text-primary-100 mt-1">Happy customers daily</p>
           </div>
         </div>
 
         <!-- Text side -->
-        <div class="order-1 md:order-2 text-center">
+        <div class=" md:order-1 text-center">
           <span
-            class="inline-block bg-primary-100 text-primary-800 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-500"
+            class="scroll-lift inline-block bg-primary-100 text-primary-800 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-primary-500"
           >
             ABOUT US
           </span>
 
           <h2
-            class="font-sans font-extrabold text-secondary-800 leading-tight tracking-tight text-4xl sm:text-5xl mb-6"
+            class="scroll-lift font-sans font-extrabold text-secondary-800 leading-tight tracking-tight text-4xl sm:text-5xl mb-6"
           >
             Made FRESH,<br />crave more.
           </h2>
 
-          <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-4">
+          <p class="scroll-lift text-neutral-600 text-base sm:text-lg leading-relaxed mb-4">
             MusuGo started with one goal: make musubi that's tasty, affordable,
             and always fresh. Every piece is seasoned, seared, and wrapped by
             hand — no shortcuts, no compromises.
           </p>
 
-          <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-8">
+          <p class="scroll-lift text-neutral-600 text-base sm:text-lg leading-relaxed mb-8">
             From our cart to your hands in minutes, we're bringing a
             Japanese-like favorite to your everyday cravings.
           </p>

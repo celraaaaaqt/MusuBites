@@ -1,4 +1,4 @@
-import './style.css'
+
 import emailjs from '@emailjs/browser';
 import javascriptLogo from './assets/javascript.svg'
 import viteLogo from './assets/vite.svg'
