@@ -31,42 +31,50 @@
     }
 
     /* Scroll-lift animation */
-  /* Base = MOBILE: each card lifts independently */
-.scroll-lift {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.scroll-lift.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    /* Base = MOBILE: each card lifts independently */
+    .scroll-lift {
+      opacity: 0;
+      transform: translateY(40px);
+      transition:
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .scroll-lift.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* Group wrapper itself never animates on its own */
-.scroll-lift-group {
-  opacity: 1;
-  transform: none;
-}
+    /* Group wrapper itself never animates on its own */
+    .scroll-lift-group {
+      opacity: 1;
+      transform: none;
+    }
 
-/* DESKTOP: group takes over, cards no longer trigger themselves */
-@media (min-width: 768px) {
-  .scroll-lift-group > .scroll-lift {
-    transition-duration: 0.6s;
-  }
+    /* DESKTOP: group takes over, cards no longer trigger themselves */
+    @media (min-width: 768px) {
+      .scroll-lift-group > .scroll-lift {
+        transition-duration: 0.6s;
+      }
 
-  /* card's own .is-visible is ignored here — group's is-visible
+      /* card's own .is-visible is ignored here — group's is-visible
      controls it via this higher-specificity descendant rule */
-  .scroll-lift-group.is-visible > .scroll-lift {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .scroll-lift-group.is-visible > .scroll-lift:nth-child(1) { transition-delay: 0ms; }
-  .scroll-lift-group.is-visible > .scroll-lift:nth-child(2) { transition-delay: 100ms; }
-  .scroll-lift-group.is-visible > .scroll-lift:nth-child(3) { transition-delay: 200ms; }
-  .scroll-lift-group.is-visible > .scroll-lift:nth-child(4) { transition-delay: 300ms; }
-}
+      .scroll-lift-group.is-visible > .scroll-lift {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .scroll-lift-group.is-visible > .scroll-lift:nth-child(1) {
+        transition-delay: 0ms;
+      }
+      .scroll-lift-group.is-visible > .scroll-lift:nth-child(2) {
+        transition-delay: 100ms;
+      }
+      .scroll-lift-group.is-visible > .scroll-lift:nth-child(3) {
+        transition-delay: 200ms;
+      }
+      .scroll-lift-group.is-visible > .scroll-lift:nth-child(4) {
+        transition-delay: 300ms;
+      }
+    }
 
     @media (hover: hover) and (pointer: fine) {
       .hover-lift {
@@ -95,7 +103,7 @@
   </style>
   <body class="font-poppins bg-neutral-50">
     <nav
-      class="sticky top-0 z-50 flex items-center justify-between w-[100%] mx-auto px-4 sm:px-6 py-2 bg-linear-to-br from-primary-300 to-primary-100 backdrop-blur-sm border border-white/20 shadow-xl shadow-black/20"
+      class="sticky top-0 z-50 flex items-center justify-between w-full mx-auto px-4 sm:px-6 py-2 bg-linear-to-br from-primary-300 to-primary-100 backdrop-blur-sm border border-white/20 shadow-xl shadow-black/20"
     >
       <img
         class="w-30 h-16 sm:w-30 sm:h-15 object-contain"
@@ -112,7 +120,10 @@
           Menu
         </a>
 
-        <a href="#about" class="text-blue-950 font-semibold hover:text-blue-800">
+        <a
+          href="#about"
+          class="text-blue-950 font-semibold hover:text-blue-800"
+        >
           About
         </a>
 
@@ -124,9 +135,10 @@
         </a>
 
         <button
+          id="openModal"
           class="bg-primary-600 rounded-xl px-5 py-2 text-white hover:bg-primary-800 transition"
         >
-          Contact Us
+          Drop Feedback
         </button>
       </div>
       <button
@@ -151,6 +163,68 @@
       </button>
     </nav>
 
+    <!-- feedback-->
+    <div
+      id="contactModal"
+      class="modal fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden z-50"
+    >
+      <div
+        class="modal-content bg-linear-to-br from-primary-100 to-primary-300 rounded-xl p-6 w-full max-w-md relative"
+      >
+        <span
+          id="closeModal"
+          class="close absolute top-2 right-3 text-primary-500 cursor-pointer text-xl"
+          >✖</span
+        >
+        <h2 class="text-2xl text-blue-900 font-extrabold mb-4">We'd love to hear a feedback from you!</h2>
+        <br>
+        <form id="contactForm" class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium  text-gray-800"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+              class="mt-1 block w-full border border-primary-800 rounded-md shadow-sm p-2 focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium  text-gray-800"
+              >Email (optional): </label
+            >
+            <input
+              id="email"
+              name="email"
+              autocomplete="email"
+              class="mt-1 block w-full border border-primary-800 rounded-md shadow-sm p-2 focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+            />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-800"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="mt-1 block w-full border border-primary-800 rounded-md shadow-sm p-2 focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-primary-600 text-white py-2 px-4 rounded-md cursor-pointer hover:bg-primary-800 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+
     <div
       id="mobileMenu"
       style="transform: translateX(100%)"
@@ -169,7 +243,7 @@
         >
         <a
           href="#about"
-          class="scroll-lift hover-lift   text-blue-950 font-semibold hover:text-blue-800"
+          class="scroll-lift hover-lift text-blue-950 font-semibold hover:text-blue-800"
           >About</a
         >
         <a
@@ -178,9 +252,10 @@
           >Features</a
         >
         <button
-          class=" scroll-lift hover-lift bg-primary-600 rounded-xl px-6 py-3 text-white font-medium hover:bg-primary-800 transition w-full"
+          id="openModalMobile"
+          class="scroll-lift hover-lift bg-primary-600 rounded-xl px-6 py-3 text-white font-medium hover:bg-primary-800 transition w-full"
         >
-          Contact Us
+          Drop Feedback
         </button>
       </div>
     </div>
@@ -230,7 +305,7 @@
           </span>
 
           <h1
-            class="font-sans font-extrabold text-secondary-800 leading-[0.95] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-3xl"
+            class="font-sans font-extrabold text-secondary-800 leading-[0.95] tracking-tight text-5xl sm:text-5xl md:text-6xl lg:text-8xl max-w-3xl"
           >
             Tasty.<br />
             Affordable.<br />
@@ -245,6 +320,7 @@
 
           <!-- CTA -->
           <button
+            id="downloadButton"
             class="hover-lift mt-8 inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-medium text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary-500/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-700 focus-visible:ring-offset-2"
           >
             Download our app now
@@ -268,7 +344,7 @@
 
     <section
       id="menu"
-      class=" w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-100"
+      class="w-full py-20 px-6 sm:px-10 md:px-16 lg:px-24 bg-neutral-100"
     >
       <div class="max-w-6xl mx-auto">
         <!-- Section header -->
@@ -416,13 +492,13 @@
           <img
             src="/src/assets/heros/GO-cover-photo.jpg"
             alt="MusuGo team"
-            class="w-full h-80 md:h-[28rem] object-cover scroll-lift hover-lift rounded-2xl shadow-xl border border-primary-800"
+            class="w-full h-80 md:h-112 object-cover scroll-lift hover-lift rounded-2xl shadow-xl border border-primary-800"
           />
           <div
             class="scroll-lift hover-lift absolute -bottom-6 -left-6 bg-primary-500 text-white rounded-2xl px-6 py-4 shadow-lg hidden sm:block border"
           >
             <p class="text-3xl font-extrabold leading-none">35</p>
-            <p class=" text-sm text-primary-100 mt-1">Happy customers daily</p>
+            <p class="text-sm text-primary-100 mt-1">Happy customers daily</p>
           </div>
         </div>
 
@@ -618,7 +694,7 @@
     </section>
 
     <footer
-      class="w-full bg-gradient-to-br from-secondary-800 to-secondary-900 text-white"
+      class="w-full bg-linear-to-br from-secondary-800 to-secondary-900 text-white"
     >
       <div class="max-w-6xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16">
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -710,12 +786,16 @@
                 >
               </li>
               <li>
-                <a href="#about" class="hover:text-primary-300 transition-colors"
+                <a
+                  href="#about"
+                  class="hover:text-primary-300 transition-colors"
                   >About</a
                 >
               </li>
               <li>
-                <a href="#features" class="hover:text-primary-300 transition-colors"
+                <a
+                  href="#features"
+                  class="hover:text-primary-300 transition-colors"
                   >Features</a
                 >
               </li>
@@ -776,7 +856,7 @@
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span>Calooacan City, Philippines</span>
+                <span>Caloocan City, Philippines</span>
               </li>
             </ul>
           </div>
@@ -787,13 +867,6 @@
           class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-400"
         >
           <p>&copy; <span id="year"></span> MusuGo. All rights reserved.</p>
-          <div class="flex gap-6">
-            <a href="#" class="hover:text-primary-300 transition-colors"
-              >Privacy Policy</a
-            >
-            <a href="#" class="hover:text-primary-300 transition-colors"
-              >Terms of Service</a
-            >
           </div>
         </div>
       </div>
@@ -805,5 +878,6 @@
 
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/smoothscroll.js"></script>
+    <script type="module" src="/src/download.js"></script>
   </body>
 </html>

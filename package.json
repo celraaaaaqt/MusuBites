@@ -12,5 +12,8 @@
     "@tailwindcss/vite": "^4.3.3",
     "tailwindcss": "^4.3.3",
     "vite": "^8.2.0"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1"
   }
 }
