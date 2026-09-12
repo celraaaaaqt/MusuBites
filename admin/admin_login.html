@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="/src/style.css" />
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="/src/assets/heros/musugo-official-logo.jpg"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+  <title>Admin — Login</title>
+
+   <style>
+    html,
+    body {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+  </style>
+</head>
+
+<body class="min-h-screen bg-primary-50 text-gray-900">
+
+  <!-- Main -->
+  <main class="min-h-screen flex items-center justify-center px-5 py-10">
+
+    <!-- Login Card -->
+    <section
+      class="
+        w-full max-w-md
+        bg-primary-100
+        border border-primary-800
+        rounded-2xl
+        shadow-card
+        p-8 sm:p-10
+      "
+    >
+
+      <!-- Logo / Brand -->
+      <div class="text-center mb-8">
+
+        <div
+          class="
+            mx-auto
+            w-14 h-14
+            rounded-xl
+            bg-primary-100
+            flex items-center justify-center
+            mb-4
+          "
+        >
+           <img
+        class="w-30 h-16 sm:w-30 sm:h-15 object-contain"
+        src="/src/assets/heros/revised_logo-removebg-preview.png"
+        alt="MusuGo Logo"
+      />
+        </div>
+
+        <h1 class="text-2xl font-bold tracking-tight">
+          MusuGo
+        </h1>
+
+        <p class="mt-1 text-sm text-gray-500">
+          Admin Portal
+        </p>
+
+      </div>
+
+
+      <!-- Login Form -->
+      <form id="loginForm" class="space-y-5 ">
+
+        <!-- Email -->
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-700 mb-2"
+          >
+            Email
+          </label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="admin@example.com"
+            autocomplete="email"
+            class="
+              w-full
+              h-12
+              px-4
+              rounded-xl
+              border border-gray-200
+              bg-white
+              text-sm
+              outline-none
+              transition
+              placeholder:text-gray-400
+              focus:border-primary-500
+              focus:ring-4
+              focus:ring-primary-100
+            "
+          />
+        </div>
+
+
+        <!-- Password -->
+        <div>
+          <label
+            for="password"
+            class="block text-sm font-medium text-gray-700 mb-2"
+          >
+            Password
+          </label>
+
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            class="
+              w-full
+              h-12
+              px-4
+              rounded-xl
+              border border-gray-200
+              bg-white
+              text-sm
+              outline-none
+              transition
+              placeholder:text-gray-400
+              focus:border-primary-500
+              focus:ring-4
+              focus:ring-primary-100
+            "
+          />
+        </div>
+
+
+        <!-- Remember / Forgot -->
+        <div class="flex items-center justify-between">
+
+          <label class="flex items-center gap-2 cursor-pointer">
+
+            <input
+              type="checkbox"
+              class="
+                w-4 h-4
+                rounded
+                border-gray-300
+                text-primary-600
+                focus:ring-primary-500
+              "
+            />
+
+            <span class="text-sm text-gray-600">
+              Remember me
+            </span>
+
+          </label>
+
+          <a
+            href="#"
+            class="
+              text-sm
+              font-medium
+              text-primary-600
+              hover:text-primary-700
+              transition
+            "
+          >
+            Forgot password?
+          </a>
+
+        </div>
+
+
+        <!-- Sign In -->
+        <button
+        
+          type="submit"
+          class="
+            w-full
+            h-12
+            rounded-xl
+            bg-primary-600
+            text-white
+            font-semibold
+            text-sm
+            transition
+            hover:bg-primary-700
+            active:scale-[0.99]
+            focus:outline-none
+            focus:ring-4
+            focus:ring-primary-200
+          "
+        >
+          Sign In
+        </button>
+<p id="error" class="text-sm text-red-600 text-center"></p>
+      </form>
+
+
+      <!-- Footer -->
+      <div class="mt-8 pt-6 border-t border-hairline text-center">
+
+        <p class="text-xs text-gray-400">
+          MusuGo Admin
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+<script type="module" src="test.js/password.js"></script>
+</body>
+</html>

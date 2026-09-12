@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/src/style.css" />
+
+  <link
+    rel="icon"
+    type="image/jpeg"
+    href="/src/assets/heros/musugo-official-logo.jpg"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+/>
+  <title>MusuGo — Admin Dashboard</title>
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* ---- Mobile sidebar behavior ----
+       Below the lg breakpoint the sidebar becomes an off-canvas
+       drawer: fixed to the viewport, translated out of view, and
+       slid in with a class toggle. At lg and above it reverts to
+       the original static in-flow sidebar. */
+    @media (max-width: 1023.98px) {
+      #sidebar {
+        position: fixed;
+        inset: 0 auto 0 0;
+        z-index: 50;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        display: flex;
+      }
+
+      #sidebar.is-open {
+        transform: translateX(0);
+      }
+    }
+
+    #sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 15, 15, 0.4);
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    #sidebar-overlay.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- =========================
+       MAIN LAYOUT
+  ========================== -->
+
+  <div class="min-h-screen flex">
+
+    <!-- Backdrop for mobile sidebar -->
+    <div id="sidebar-overlay"></div>
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside
+      id="sidebar"
+      class="
+        flex
+        w-64
+        shrink-0
+        flex-col
+        bg-white
+        border-r border-hairline
+      "
+    >
+
+      <!-- Logo -->
+      <div class="h-20 px-6 flex items-center justify-between border-b border-hairline">
+
+        <div class="flex items-center gap-3">
+
+          <img
+            src="/src/assets/heros/revised_logo-removebg-preview.png"
+            alt="MusuGo Logo"
+            class="w-12 h-12 object-contain"
+          />
+
+          <div>
+            <h1 class="font-bold text-lg leading-none">
+              MusuGo
+            </h1>
+
+            <p class="text-xs text-gray-400 mt-1">
+              Admin Portal
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Close button, mobile only -->
+        <button
+          type="button"
+          id="sidebar-close"
+          class="
+            lg:hidden
+            w-9 h-9
+            rounded-lg
+            flex items-center justify-center
+            text-gray-400
+            hover:bg-gray-100
+            hover:text-gray-600
+            transition
+          "
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+
+      </div>
+
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+
+        <!-- Dashboard -->
+        <a
+          href="#"
+          id="dashboard-link"
+          class="
+            flex items-center gap-3
+            px-4 py-3
+            rounded-xl
+            text-gray-600
+            hover:bg-primary-50
+            hover:text-primary-700
+            transition
+            text-sm
+          "
+        >
+          <span>▣</span>
+          Dashboard
+        </a>
+
+
+        <!-- Orders -->
+        <a
+          href="#"
+          class="
+            flex items-center gap-3
+            px-4 py-3
+            rounded-xl
+            text-gray-600
+            hover:bg-primary-50
+            hover:text-primary-700
+            transition
+            text-sm
+          "
+        >
+          <span>▤</span>
+          Orders
+
+          <span
+            class="
+              ml-auto
+              min-w-6 h-6
+              px-1.5
+              rounded-full
+              bg-gray-100
+              text-gray-500
+              text-xs
+              flex items-center justify-center
+            "
+          >
+            0
+          </span>
+        </a>
+
+
+        <!-- Products -->
+        <a
+        id="products-link"
+          href="#"
+          class="
+            flex items-center gap-3
+            px-4 py-3
+            rounded-xl
+            text-gray-600
+            hover:bg-primary-50
+            hover:text-primary-700
+            transition
+            text-sm
+          "
+        >
+          <span>▦</span>
+          Products
+        </a>
+
+
+        <!-- Categories -->
+        <a
+        id="categories-link"
+          href="#"
+          class="
+            flex items-center gap-3
+            ml-8
+            px-4 py-2.5
+            rounded-lg
+            text-gray-500
+            hover:bg-primary-50
+            hover:text-primary-700
+            transition
+            text-sm
+          "
+        >
+          <span class="text-xs">•</span>
+          Categories
+        </a>
+
+
+        <!-- Inventory -->
+        <a
+          href="#"
+          class="
+            flex items-center gap-3
+            px-4 py-3
+            rounded-xl
+            text-gray-600
+            hover:bg-primary-50
+            hover:text-primary-700
+            transition
+            text-sm
+          "
+        >
+          <span>▥</span>
+          Inventory
+        </a>
+
+
+        <!-- Settings -->
+        <a
+          href="#"
+          class="
+            flex items-center gap-3
+            px-4 py-3
+            rounded-xl
+            text-gray-600
+            hover:bg-primary-50
+            hover:text-primary-700
+            transition
+            text-sm
+          "
+        >
+          <span>⚙</span>
+          Settings
+        </a>
+
+      </nav>
+
+
+      <!-- Logout -->
+      <div class="p-4 border-t border-hairline">
+
+        <button
+          type="button"
+          class="
+            w-full
+            flex items-center gap-3
+            px-4 py-3
+            rounded-xl
+            text-gray-600
+            hover:bg-red-50
+            hover:text-red-600
+            transition
+            text-sm
+          "
+        >
+          <span>↪</span>
+          Logout
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN AREA
+    ========================== -->
+
+    <div class="flex-1 min-w-0">
+
+      <!-- =========================
+           TOP BAR
+      ========================== -->
+
+      <header
+        class="
+          h-16 sm:h-20
+          bg-white
+          border-b border-hairline
+          flex items-center justify-between
+          px-4 sm:px-8
+          gap-3
+        "
+      >
+
+        <!-- Left side: hamburger + mobile logo -->
+        <div class="flex items-center gap-3 min-w-0">
+
+          <!-- Hamburger, mobile/tablet only -->
+          <button
+            type="button"
+            id="sidebar-open"
+            class="
+              lg:hidden
+              w-10 h-10
+              shrink-0
+              rounded-xl
+              flex items-center justify-center
+              text-gray-500
+              hover:bg-primary-50
+              hover:text-primary-600
+              transition
+            "
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+
+          <div class="flex items-center gap-3 min-w-0 lg:hidden">
+
+            <img
+              src="/src/assets/heros/revised_logo-removebg-preview.png"
+              alt="MusuGo Logo"
+              class="w-9 h-9 sm:w-10 sm:h-10 object-contain shrink-0"
+            />
+
+            <span class="font-bold truncate">
+              MusuGo
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-2 sm:gap-4 ml-auto">
+
+          <!-- Notifications -->
+          <button
+            type="button"
+            class="
+              relative
+              w-10 h-10
+              rounded-xl
+              flex items-center justify-center
+              text-gray-500
+              hover:bg-primary-50
+              hover:text-primary-600
+              transition
+            "
+            aria-label="Notifications"
+          >
+            🔔
+          </button>
+
+
+          <!-- Profile -->
+          <button
+            type="button"
+            class="
+              flex items-center gap-2 sm:gap-3
+              pl-2 sm:pl-3
+              border-l border-gray-200
+            "
+          >
+
+            <div
+              class="
+                w-9 h-9 sm:w-10 sm:h-10
+                shrink-0
+                rounded-full
+                bg-primary-100
+                text-primary-700
+                flex items-center justify-center
+                font-semibold
+              "
+            >
+              A
+            </div>
+
+            <div class="hidden sm:block text-left">
+
+              <p class="text-sm font-semibold">
+                Admin
+              </p>
+
+              <p class="text-xs text-gray-400">
+                Administrator
+              </p>
+
+            </div>
+
+            <span class="hidden sm:block text-gray-400">
+              ▾
+            </span>
+
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- =========================
+           DYNAMIC PAGE CONTENT
+      ========================== -->
+
+      <main
+        id="app-content"
+        class="p-4 sm:p-6 lg:p-8"
+      >
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script
+    type="module"
+    src="/src/script.js"
+  >
+</script>
+  <script>
+    (function () {
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("sidebar-overlay");
+      const openBtn = document.getElementById("sidebar-open");
+      const closeBtn = document.getElementById("sidebar-close");
+
+      function openSidebar() {
+        sidebar.classList.add("is-open");
+        overlay.classList.add("is-visible");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeSidebar() {
+        sidebar.classList.remove("is-open");
+        overlay.classList.remove("is-visible");
+        document.body.style.overflow = "";
+      }
+
+      openBtn?.addEventListener("click", openSidebar);
+      closeBtn?.addEventListener("click", closeSidebar);
+      overlay?.addEventListener("click", closeSidebar);
+
+      // Close the drawer whenever a nav link inside it is tapped.
+      sidebar?.querySelectorAll("a, button").forEach((el) => {
+        el.addEventListener("click", () => {
+          if (window.innerWidth < 1024) closeSidebar();
+        });
+      });
+
+      // If the viewport grows past the mobile breakpoint while the
+      // drawer is open, reset state so desktop layout isn't stuck
+      // mid-transition.
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1024) closeSidebar();
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -24,7 +24,7 @@ function openMenu() {
   menuBtn.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';  
 
-  // morph into X
+  //change into X
   bar1.style.transform = 'translateY(8px) rotate(45deg)';
   bar2.style.opacity = '0';
   bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
@@ -36,7 +36,7 @@ function closeMenu() {
   menuBtn.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
 
-  // morph back into hamburger
+  //change back into hamburger
   bar1.style.transform = 'none';
   bar2.style.opacity = '1';
   bar3.style.transform = 'none';
