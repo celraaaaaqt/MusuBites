@@ -11,9 +11,6 @@ export function renderCategories() {
           Categories
         </h1>
 
-        <p class="mt-1 text-sm text-gray-500">
-          Organize your kiosk products into categories.
-        </p>
       </div>
 
       <button

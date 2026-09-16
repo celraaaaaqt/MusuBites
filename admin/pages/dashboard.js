@@ -10,10 +10,6 @@ export function renderDashboard() {
         Dashboard
       </h2>
 
-      <p class="text-sm text-gray-500 mt-1">
-        Overview of your kiosk.
-      </p>
-
     </div>
 
 
