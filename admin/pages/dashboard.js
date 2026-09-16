@@ -208,7 +208,7 @@ export function renderDashboard() {
             </h3>
 
             <p class="text-xs text-gray-400 mt-1">
-              Track your kiosk sales performance.
+              Track MusuGo's Sales.
             </p>
 
           </div>
