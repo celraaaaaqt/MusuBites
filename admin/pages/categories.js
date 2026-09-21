@@ -1,4 +1,4 @@
-
+import { logout } from '../lib/auth-guard.js';
 
 export let categories = [];
 
