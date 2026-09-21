@@ -1,4 +1,4 @@
-import { logout } from '../lib/auth-guard.js';
+
 
 export let categories = [];
 
@@ -118,7 +118,7 @@ export function renderCategories() {
         ${
           categories.length === 0
             ? `
-              <div class="flex min-h-[320px] flex-col items-center justify-center px-6 text-center">
+              <div class="flex min-h-[80] flex-col items-center justify-center px-6 text-center">
 
                 <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
                   <i class="fa-solid fa-layer-group text-2xl"></i>
@@ -182,7 +182,7 @@ export function renderCategories() {
     <!-- Add Category Modal -->
     <div
       id="add-category-modal"
-      class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/40 p-4"
+      class="fixed inset-0 z-100 hidden items-center justify-center bg-black/40 p-4"
     >
       <div class="w-full max-w-md rounded-2xl bg-white shadow-xl">
 
