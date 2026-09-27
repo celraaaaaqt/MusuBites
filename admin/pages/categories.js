@@ -4,7 +4,6 @@ export let categories = [];
 
 export function renderCategories() {
   return `
-    <!-- Categories Header -->
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8">
       <div>
         <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">

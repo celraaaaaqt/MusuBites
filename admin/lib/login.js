@@ -5,7 +5,7 @@ const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const errorMessage = document.getElementById('error');
 
-// If already logged in as staff, skip straight to the dashboard.
+//checks if already logged in
 if (pb.authStore.isValid && pb.authStore.record?.role === 'staff') {
   window.location.href = '/admin/dashboard.html';
 }
