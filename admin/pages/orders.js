@@ -1,4 +1,4 @@
-    import { pb } from "/admin/lib/pb.js";
+import { pb } from "/admin/lib/pb.js";
     import { esc, peso, formatDate, toast, pbError, loadingHtml, errorHtml } from "/admin/lib/utils.js";
 
     //values in my pocketbase collections
@@ -179,6 +179,19 @@
     const items = itemsOf(o);
     const pay = payments.get(o.id);
 
+    // Amount paid / change shown once the order is Paid.
+    //  Cash     -> what staff entered when confirming (cash_received / change)
+    //  E-wallet -> exact total was paid via QR, so change is 0
+    const isPaid = o.payment_status === PAID;
+    const isCashPay = pay?.payment_method === CASH;
+    const orderTotal = Number(o.total || 0);
+    const amountPaid = isCashPay
+        ? Number(pay?.[CASH_RECEIVED_FIELD]) || orderTotal
+        : Number(pay?.amount) || orderTotal;
+    const changeGiven = isCashPay
+        ? Number(pay?.[CHANGE_FIELD]) || Math.max(0, amountPaid - orderTotal)
+        : 0;
+
     return `
         <div class="space-y-5 p-6">
         <div class="flex flex-wrap items-center gap-2">
@@ -211,6 +224,18 @@
             <span class="text-sm font-medium text-gray-500">Total</span>
             <span class="text-xl font-bold text-gray-900">${peso(o.total)}</span>
         </div>
+
+        ${isPaid ? `
+            <div class="space-y-2">
+            <div class="flex items-center justify-between text-sm">
+                <span class="font-medium text-gray-500">Amount paid</span>
+                <span class="font-semibold text-gray-900">${peso(amountPaid)}</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+                <span class="font-medium text-gray-500">Change</span>
+                <span class="font-semibold text-gray-900">${peso(changeGiven)}</span>
+            </div>
+            </div>` : ""}
 
         ${unpaid ? `
             <div>
