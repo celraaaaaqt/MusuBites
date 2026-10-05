@@ -1,4 +1,4 @@
-const DESKTOP_QUERY = '(min-width: 768px)';
+  const DESKTOP_QUERY = '(min-width: 768px)';
 let observer;
 
 function setupScrollLift() {
