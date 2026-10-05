@@ -4,7 +4,8 @@ import { mountDashboard } from "/admin/pages/dashboard.js";
 import { mountOrders, stopOrdersRealtime } from "/admin/pages/orders.js";
 import { mountProducts } from "/admin/pages/products.js";
 import { mountCategories } from "/admin/pages/categories.js";
-
+import {mountRatings} from "/admin/pages/ratings.js";
+ 
 const content = document.getElementById("app-content");
 
 const pages = {
@@ -12,6 +13,7 @@ const pages = {
   orders: { link: "orders-link", mount: mountOrders },
   products: { link: "products-link", mount: mountProducts },
   categories: { link: "categories-link", mount: mountCategories },
+  ratings: { link: "ratings-link", mount: mountRatings },
 };
 
 //sidebar badge = number of orders with payment status Pending.

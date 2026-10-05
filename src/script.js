@@ -1,6 +1,7 @@
 import { renderDashboard } from "../admin/pages/dashboard.js";
 import { renderProducts, products } from "../admin/pages/products.js";
 import { renderCategories, categories } from "../admin/pages/categories.js";
+   
 
 const appContent = document.querySelector("#app-content");
 
