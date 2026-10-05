@@ -144,3 +144,9 @@
           box-shadow 0.15s ease;
       }
     }
+
+    #sidebar a[data-active="true"] {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+  font-weight: 500;
+}
